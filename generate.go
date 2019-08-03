@@ -18,5 +18,6 @@
 //go:generate go run cmd/optional/main.go -type=uint64 -output=Uint64
 //go:generate go run cmd/optional/main.go -type=uint8 -output=Uint8
 //go:generate go run cmd/optional/main.go -type=uintptr -output=Uintptr
+//go:generate go run cmd/optional/main.go -type=[]string -output=StringSlice
 
 package optional
