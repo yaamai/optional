@@ -160,6 +160,11 @@ func ({{ .VariableName }} {{ .OutputName }}) Get() ({{ .TypeName }}, error) {
 	return *{{ .VariableName }}.value, nil
 }
 
+// Unwrap returns the {{ .TypeName }} value or an error if not present.
+func ({{ .VariableName }} {{ .OutputName }}) Unwrap() {{ .TypeName }} {
+	return *{{ .VariableName }}.value
+}
+
 // Present returns whether or not the value is present.
 func ({{ .VariableName }} {{ .OutputName }}) Present() bool {
 	return {{ .VariableName }}.value != nil
