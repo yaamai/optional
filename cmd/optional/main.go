@@ -208,28 +208,4 @@ func ({{ .VariableName }} *{{ .OutputName }}) UnmarshalJSON(data []byte) error {
 	{{ .VariableName }}.value = &value
 	return nil
 }
-
-func ({{ .VariableName }} {{ .OutputName }}) MarshalYAML() ([]byte, error) {
-	if {{ .VariableName }}.Present() {
-		return yaml.Marshal({{ .VariableName }}.value)
-	}
-	return yaml.Marshal(nil)
-}
-
-func ({{ .VariableName }} *{{ .OutputName }}) UnmarshalYAML(data []byte) error {
-
-	if string(data) == "null" {
-		{{ .VariableName }}.value = nil
-		return nil
-	}
-
-	var value {{ .TypeName }}
-
-	if err := yaml.Unmarshal(data, &value); err != nil {
-		return err
-	}
-
-	{{ .VariableName }}.value = &value
-	return nil
-}
 `
